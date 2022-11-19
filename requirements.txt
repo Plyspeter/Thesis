@@ -1,0 +1,12 @@
+wheel
+prettyNEAT
+numpy
+torch
+plotly
+pygame
+gym
+networkx
+matplotlib
+scipy
+sklearn
+box2d-py

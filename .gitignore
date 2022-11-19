@@ -1,0 +1,11 @@
+__pycache__
+.pyc
+.python-version
+.vscode
+.html
+__secrets.py
+logs
+graph_visual
+swig-4.0.2
+AI
+Allstar_AIs

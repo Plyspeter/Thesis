@@ -1,0 +1,119 @@
+{
+    "version": 1,
+    "formatters":
+    {
+        "default":
+        {
+            "style": "{",
+            "format": "{asctime}.{msecs:03.0f} - {name} - {levelname}: {message}",
+            "datefmt": "%d-%m-%Y %H:%M:%S"
+        },
+
+        "with_process":
+        {
+            "style": "{",
+            "format": "{asctime}.{msecs:03.0f} - Proc ({process}, {processName}) - {name} - {levelname}: {message}",
+            "datefmt": "%d-%m-%Y %H:%M:%S"
+        },
+
+        "proc_name_only":
+        {
+            "style": "{",
+            "format": "Proc({processName}) - {name} - {levelname}: {message}"
+        },
+
+        "msg_only":
+        {
+            "style": "{",
+            "format": "{message}"
+        }
+
+    },
+    "handlers":
+    {
+        "console":
+        {
+            "class": "logging.StreamHandler",
+            "level": "INFO",
+            "formatter": "msg_only",
+            "stream": "ext://sys.stdout"
+        },
+
+        "file":
+        {
+            "class": "logging.FileHandler",
+            "level": "DEBUG",
+            "formatter": "with_process",
+            "filename": "./logs/log.log",
+            "mode": "w",
+            "encoding": "utf-8"
+        },
+
+        "discord":
+        {
+            "class": "hedwig.DiscordHandler",
+            "level": "CRITICAL_INFO",
+            "formatter": "with_process",
+            "host": "discord.com",
+            "url": "discord_url",
+            "method": "POST",
+            "secure": true
+        }
+    },
+    "loggers":
+    {
+        "__main__":
+        {
+            "level": "DEBUG",
+            "handlers": ["console", "file", "discord"],
+            "propagate": false
+        },
+
+        "evolution":
+        {
+            "level": "DEBUG",
+            "handlers": ["console", "file", "discord"],
+            "propagate": false
+        },
+
+        "actual_multiprocessing":
+        {
+            "level": "DEBUG",
+            "handlers": ["console", "file", "discord"],
+            "propagate": false
+        },
+
+        "graph":
+        {
+            "level": "DEBUG",
+            "handlers": ["console", "file", "discord"],
+            "propagate": false
+        },
+
+        "gym_env":
+        {
+            "level": "DEBUG",
+            "handlers": ["console", "file", "discord"],
+            "propagate": false
+        },
+
+        "network":
+        {
+            "level": "DEBUG",
+            "handlers": ["console", "file", "discord"],
+            "propagate": false
+        },
+
+        "exception_logger":
+        {
+            "level": "DEBUG",
+            "handlers": ["console", "file", "discord"],
+            "propagate": false
+        }
+    },
+    "root":
+    {
+        "level": "INFO",
+        "handlers": ["console"]
+    }
+}
